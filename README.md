@@ -1,38 +1,32 @@
-## Graphical Tool for Genome Comparison by Dotplot
-Overview
-This application allows the comparison of two prokaryotic genomes based on their proteomes. It searches for and downloads the data from NCBI, runs a BLASTP comparison, and then displays the result as an interactive dotplot.
+# Graphical Tool for Genome Comparison by Dotplot
+
+## Overview
+
+This application allows the comparison of two prokaryotic genomes based on their proteomes. It searches for and downloads data from NCBI, runs a BLASTP comparison, and then displays the result as an interactive dotplot.
 
 The project specification specifically requires the selection of two prokaryotic genomes, their download from NCBI, the detection of homologous gene pairs using BLASTP, and the display of a dotplot. It also recommends several ergonomic improvements, notably adjusting the E-value threshold, detecting synteny blocks, and interacting with the graph; these features are supported by the application.
 
-Main Features
-Search for prokaryotic assemblies in the NCBI database.
+## Main Features
 
-Select two genomes to compare.
+- Search for prokaryotic assemblies in the NCBI database.
+- Select two genomes to compare.
+- Download the files required for the analysis.
+- Run a BLASTP comparison between the genomes.
+- Build and display the dotplot of homologous gene pairs.
+- Adjust the E-value threshold before computation.
+- Optionally display synteny regions.
+- Show detailed information about a gene pair by hovering over or clicking on the dotplot.
+- Export BLASTP hits in CSV format.
+- Export synteny segments in CSV format.
+- Save a textual summary of the analysis.
 
-Download the files required for the analysis.
+## Required Environment
 
-Run a BLASTP comparison between the genomes.
+Development and testing were carried out under Linux. The application requires Python, the project's Python dependencies, as well as BLAST+ for running `blastp` and `makeblastdb`.
 
-Build and display the dotplot of homologous gene pairs.
+## Project Structure
 
-Adjust the E-value threshold before computation.
-
-Optionally display synteny regions.
-
-Show detailed information about a gene pair on hover or click on the dotplot.
-
-Export BLASTP hits in CSV format.
-
-Export synteny segments in CSV format.
-
-Save a textual summary of the analysis.
-
-Required Environment
-Development and testing were carried out under Linux. The application requires Python, the project’s Python dependencies, as well as BLAST+ for running blastp and makeblastdb.
-
-Project Structure
-text
-
+```text
 Malek_Louiz_Dotplot_Project/
 ├── README.md
 ├── fiche_resume.md
@@ -47,89 +41,82 @@ Malek_Louiz_Dotplot_Project/
 │       ├── ncbi/
 │       ├── ui/
 │       └── utils/
-    └── app.py
+│   └── app.py
 └── examples/
     └── interface_screenshot.png
-Minimum Dependencies
-Python 3
+```
 
-PySide6
+## Minimum Dependencies
 
-matplotlib
-
-requests
-
-BLAST+
+- Python 3
+- PySide6
+- matplotlib
+- requests
+- BLAST+
 
 Example of BLAST+ installation on Debian/Ubuntu:
 
-bash
-
+```bash
 sudo apt install ncbi-blast+
-Installation
+```
+
+## Installation
+
 From the project root:
 
-bash
-
+```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-Launch
-bash
+```
 
+## Launch
+
+```bash
 cd src
 python app.py
-Usage
-Open the application.
+```
 
-Search for a first genome in NCBI.
+## Usage
 
-Select it as genome A.
+1. Open the application.
+2. Search for a first genome in NCBI.
+3. Select it as genome A.
+4. Search for a second genome.
+5. Select it as genome B.
+6. Download the required data.
+7. Adjust the E-value threshold if needed.
+8. Run the comparison pipeline.
+9. Examine the generated dotplot.
+10. Enable or disable the display of synteny regions.
+11. Hover over or click on a point to view information about a gene pair.
+12. Export the results if needed.
 
-Search for a second genome.
+## Generated Results
 
-Select it as genome B.
-
-Download the required data.
-
-Adjust the E-value threshold if needed.
-
-Run the comparison pipeline.
-
-Examine the generated dotplot.
-
-Enable or disable the display of synteny regions.
-
-Hover over or click on a point to view information about a gene pair.
-
-Export the results if needed.
-
-Generated Results
 The application can produce several useful outputs for evaluation:
 
-an interactive dotplot;
+- an interactive dotplot;
+- a CSV export of BLASTP hits;
+- a CSV export of synteny segments;
+- a textual summary of the analysis.
 
-a CSV export of BLASTP hits;
+## Possible Evaluation Points
 
-a CSV export of synteny segments;
-
-a textual summary of the analysis.
-
-Possible Evaluation Points
 The software makes it possible to directly verify the core elements expected in the project:
 
-selection and download of two prokaryotic genomes;
+- selection and download of two prokaryotic genomes;
+- comparison of their proteins using BLASTP;
+- visualization of homologs in a dotplot;
+- addition of useful features in a research context, such as threshold adjustment, synteny highlighting, and interactive point exploration.
 
-comparison of their proteins using BLASTP;
+## Notes
 
-visualization of homologs in a dotplot;
+The project statement reminds us that the dotplot is particularly useful for visualizing syntenic regions and suggesting rearrangements such as duplications, inversions, or translocations. The tool was designed with this logic of visual exploration and usability in mind, making it simple and user-friendly to operate.
 
-addition of useful features in a research context, such as threshold adjustment, synteny highlighting, and interactive point exploration.
+## Author
 
-Notes
-The project statement reminds that the dotplot is particularly useful for visualizing syntenic regions and suggesting rearrangements such as duplications, inversions, or translocations. The tool was designed with this logic of visual exploration and usability in mind, for simple and user-friendly operation.
-
-Author
-Malek Louiz
-21108469 MU5BM748 — Advanced Python
+Malek Louiz  
+21108469  
+MU5BM748 — Advanced Python  
 Academic Year 2025–2026
